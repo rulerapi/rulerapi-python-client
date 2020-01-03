@@ -32,7 +32,9 @@ class TestGetRuleApi(unittest.TestCase):
         """Test case for get_rule
 
         """
-        pass
+        result = self.api.get_rule("Test")
+        assert type(result) == str
+        assert result == "asdfasdf"
 
 
 if __name__ == '__main__':
