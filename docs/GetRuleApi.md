@@ -19,12 +19,12 @@ Returns the content of a rule.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import frcrules
+from frcrules.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = openapi_client.GetRuleApi()
+api_instance = frcrules.GetRuleApi()
 rule_id = 'rule_id_example' # str | Rule ID to get
 
 try:

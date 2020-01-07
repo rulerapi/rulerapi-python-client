@@ -14,16 +14,16 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.api.get_rule_api import GetRuleApi  # noqa: E501
-from openapi_client.rest import ApiException
+import frcrules
+from frcrules.api.get_rule_api import GetRuleApi  # noqa: E501
+from frcrules.rest import ApiException
 
 
 class TestGetRuleApi(unittest.TestCase):
     """GetRuleApi unit test stubs"""
 
     def setUp(self):
-        self.api = openapi_client.api.get_rule_api.GetRuleApi()  # noqa: E501
+        self.api = frcrules.api.get_rule_api.GetRuleApi()  # noqa: E501
 
     def tearDown(self):
         pass

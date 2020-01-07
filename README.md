@@ -23,7 +23,7 @@ pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
 
 Then import the package:
 ```python
-import openapi_client 
+import frcrules 
 ```
 
 ### Setuptools
@@ -37,7 +37,7 @@ python setup.py install --user
 
 Then import the package:
 ```python
-import openapi_client
+import frcrules
 ```
 
 ## Getting Started
@@ -47,13 +47,13 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import frcrules
+from frcrules.rest import ApiException
 from pprint import pprint
 
 
 # create an instance of the API class
-api_instance = openapi_client.GetRuleApi(openapi_client.ApiClient(configuration))
+api_instance = frcrules.GetRuleApi(frcrules.ApiClient(configuration))
 rule_id = 'rule_id_example' # str | Rule ID to get
 
 try:
