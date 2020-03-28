@@ -14,7 +14,7 @@ Python 2.7 and 3.4+
 ## Installation & Usage
 ### pip install
 
-If the python package is hosted on Github, you can install directly from Github
+If the python package is hosted on a repository, you can install directly using:
 
 ```sh
 pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
@@ -23,7 +23,7 @@ pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
 
 Then import the package:
 ```python
-import frcrules 
+import frcrules
 ```
 
 ### Setuptools
@@ -52,16 +52,21 @@ from frcrules.rest import ApiException
 from pprint import pprint
 
 
-# create an instance of the API class
-api_instance = frcrules.GetRuleApi(frcrules.ApiClient(configuration))
-rule_id = 'rule_id_example' # str | Rule ID to get
+# Defining host is optional and default to https://frcrules.herokuapp.com
+configuration.host = "https://frcrules.herokuapp.com"
+# Enter a context with an instance of the API client
+with frcrules.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = frcrules.GetRuleApi(api_client)
+    rule_id = 'rule_id_example' # str | Rule ID to get
+ruleset = 'ruleset_example' # str | The ruleset to look up the rule from.
 
-try:
-    api_response = api_instance.get_rule(rule_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling GetRuleApi->get_rule: %s\n" % e)
-
+    try:
+        api_response = api_instance.get_rule(rule_id, ruleset)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GetRuleApi->get_rule: %s\n" % e)
+    
 ```
 
 ## Documentation for API Endpoints
@@ -70,8 +75,8 @@ All URIs are relative to *https://frcrules.herokuapp.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*GetRuleApi* | [**get_rule**](docs/GetRuleApi.md#get_rule) | **GET** /rule/{rule_id} | 
-*GetRuleListApi* | [**get_rules**](docs/GetRuleListApi.md#get_rules) | **GET** /rules | 
+*GetRuleApi* | [**get_rule**](docs/GetRuleApi.md#get_rule) | **GET** /rule/{ruleset}/{rule_id} | 
+*GetRuleListApi* | [**get_rules**](docs/GetRuleListApi.md#get_rules) | **GET** /rules/{ruleset} | 
 
 
 ## Documentation For Models
